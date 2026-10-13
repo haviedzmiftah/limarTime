@@ -1,0 +1,629 @@
+{
+  "school_info": {
+    "name": "SMP Negeri 1 Ngawi",
+    "sk_number": "400.3.5.1/269/404.301.3.01/2026",
+    "semester": "Ganjil 2026/2027",
+    "effective_date": "17 Agustus 2026",
+    "headmaster": {
+      "name": "TARKUM, S.Pd.",
+      "nip": "196611071992031006"
+    },
+    "total_classes": 30,
+    "classes_by_grade": {
+      "7": [
+        "7A",
+        "7B",
+        "7C",
+        "7D",
+        "7E",
+        "7F",
+        "7G",
+        "7H",
+        "7I",
+        "7J"
+      ],
+      "8": [
+        "8A",
+        "8B",
+        "8C",
+        "8D",
+        "8E",
+        "8F",
+        "8G",
+        "8H",
+        "8I",
+        "8J"
+      ],
+      "9": [
+        "9A",
+        "9B",
+        "9C",
+        "9D",
+        "9E",
+        "9F",
+        "9G",
+        "9H",
+        "9I",
+        "9J"
+      ]
+    },
+    "daily_schedule_structure": {
+      "Senin": {
+        "upacara": "07.00 - 08.00 (JP 0)",
+        "jp_slots": [
+          {
+            "jp": 1,
+            "time": "08.00 - 08.40"
+          },
+          {
+            "jp": 2,
+            "time": "08.40 - 09.20"
+          },
+          {
+            "type": "break",
+            "time": "09.20 - 09.50"
+          },
+          {
+            "jp": 3,
+            "time": "09.50 - 10.30"
+          },
+          {
+            "jp": 4,
+            "time": "10.30 - 11.10"
+          },
+          {
+            "type": "kokurikuler",
+            "name": "Mengaji (Kelas 7, 8, 9)",
+            "time": "11.10 - 12.00"
+          },
+          {
+            "type": "break_prayer_mbg",
+            "time": "12.00 - 13.00"
+          },
+          {
+            "jp": 5,
+            "time": "13.00 - 13.40"
+          },
+          {
+            "jp": 6,
+            "time": "13.40 - 14.20"
+          },
+          {
+            "type": "kebersihan",
+            "time": "14.20 - 14.30"
+          }
+        ],
+        "max_jp": 6
+      },
+      "Selasa": {
+        "jp_slots": [
+          {
+            "jp": 1,
+            "time": "07.00 - 07.40"
+          },
+          {
+            "jp": 2,
+            "time": "07.40 - 08.20"
+          },
+          {
+            "type": "kokurikuler",
+            "name": "Dhuha (7), Senam (8), Literasi (9)",
+            "time": "08.20 - 09.10"
+          },
+          {
+            "type": "break",
+            "time": "09.10 - 09.40"
+          },
+          {
+            "jp": 3,
+            "time": "09.40 - 10.20"
+          },
+          {
+            "jp": 4,
+            "time": "10.20 - 11.00"
+          },
+          {
+            "jp": 5,
+            "time": "11.00 - 11.40"
+          },
+          {
+            "type": "break_prayer_mbg",
+            "time": "11.40 - 12.40"
+          },
+          {
+            "jp": 6,
+            "time": "12.40 - 13.20"
+          },
+          {
+            "jp": 7,
+            "time": "13.20 - 14.00"
+          },
+          {
+            "type": "kebersihan",
+            "time": "14.00 - 14.10"
+          }
+        ],
+        "max_jp": 7
+      },
+      "Rabu": {
+        "jp_slots": [
+          {
+            "jp": 1,
+            "time": "07.00 - 07.40"
+          },
+          {
+            "jp": 2,
+            "time": "07.40 - 08.20"
+          },
+          {
+            "type": "kokurikuler",
+            "name": "Literasi (7), Dhuha (8), Senam (9)",
+            "time": "08.20 - 09.10"
+          },
+          {
+            "type": "break",
+            "time": "09.10 - 09.40"
+          },
+          {
+            "jp": 3,
+            "time": "09.40 - 10.20"
+          },
+          {
+            "jp": 4,
+            "time": "10.20 - 11.00"
+          },
+          {
+            "jp": 5,
+            "time": "11.00 - 11.40"
+          },
+          {
+            "type": "break_prayer_mbg",
+            "time": "11.40 - 12.40"
+          },
+          {
+            "jp": 6,
+            "time": "12.40 - 13.20"
+          },
+          {
+            "jp": 7,
+            "time": "13.20 - 14.00"
+          },
+          {
+            "type": "kebersihan",
+            "time": "14.00 - 14.10"
+          }
+        ],
+        "max_jp": 7
+      },
+      "Kamis": {
+        "jp_slots": [
+          {
+            "jp": 1,
+            "time": "07.00 - 07.40"
+          },
+          {
+            "jp": 2,
+            "time": "07.40 - 08.20"
+          },
+          {
+            "type": "kokurikuler",
+            "name": "Senam (7), Literasi (8), Dhuha (9)",
+            "time": "08.20 - 09.10"
+          },
+          {
+            "type": "break",
+            "time": "09.10 - 09.40"
+          },
+          {
+            "jp": 3,
+            "time": "09.40 - 10.20"
+          },
+          {
+            "jp": 4,
+            "time": "10.20 - 11.00"
+          },
+          {
+            "jp": 5,
+            "time": "11.00 - 11.40"
+          },
+          {
+            "jp": 6,
+            "time": "11.40 - 12.20"
+          },
+          {
+            "type": "break_prayer_mbg",
+            "time": "12.20 - 13.10"
+          },
+          {
+            "jp": 7,
+            "time": "13.10 - 13.50"
+          },
+          {
+            "jp": 8,
+            "time": "13.50 - 14.30"
+          },
+          {
+            "type": "kebersihan",
+            "time": "14.30 - 14.40"
+          }
+        ],
+        "max_jp": 8
+      },
+      "Jumat": {
+        "jp_slots": [
+          {
+            "type": "kokurikuler",
+            "name": "Adiwiyata (Kelas 7, 8, 9)",
+            "time": "07.00 - 07.50"
+          },
+          {
+            "jp": 1,
+            "time": "07.50 - 08.30"
+          },
+          {
+            "jp": 2,
+            "time": "08.30 - 09.10"
+          },
+          {
+            "type": "break",
+            "time": "09.10 - 09.40"
+          },
+          {
+            "jp": 3,
+            "time": "09.40 - 10.20"
+          },
+          {
+            "jp": 4,
+            "time": "10.20 - 11.00"
+          },
+          {
+            "type": "mbg_kebersihan",
+            "time": "11.00 - 11.40"
+          },
+          {
+            "type": "break_prayer_eat",
+            "time": "11.40 - 13.00"
+          },
+          {
+            "type": "extracurricular",
+            "name": "Pramuka",
+            "time": "13.00 - 15.00"
+          }
+        ],
+        "max_jp": 4
+      }
+    }
+  },
+  "teachers": [
+    {
+      "no": 1,
+      "code": "ST",
+      "name": "Sulistiono, S.Pd.I.",
+      "subject": "PAI"
+    },
+    {
+      "no": 2,
+      "code": "WS",
+      "name": "Warsito, S.Pd.I.",
+      "subject": "PAI"
+    },
+    {
+      "no": 3,
+      "code": "AB",
+      "name": "Ambar Maisaroh, S.Pd.I",
+      "subject": "PAI"
+    },
+    {
+      "no": 4,
+      "code": "FR",
+      "name": "Fransiska Letsu Kharisma Putri, S.Pd.",
+      "subject": "KATOLIK/PPKn"
+    },
+    {
+      "no": 5,
+      "code": "ER",
+      "name": "Elirosa Telaumbanua, S. Th",
+      "subject": "KRISTEN"
+    },
+    {
+      "no": 6,
+      "code": "SA",
+      "name": "Samsul Huda, S.Pd.",
+      "subject": "PPKn"
+    },
+    {
+      "no": 7,
+      "code": "FE",
+      "name": "Fektor Hadhiyantoro, S.Pd.",
+      "subject": "PPKn"
+    },
+    {
+      "no": 8,
+      "code": "YI",
+      "name": "Yuni Trisnawati, S.Pd",
+      "subject": "PPKn"
+    },
+    {
+      "no": 9,
+      "code": "IS",
+      "name": "Ismini, S.Pd.,M.Si.",
+      "subject": "BIN"
+    },
+    {
+      "no": 10,
+      "code": "RD",
+      "name": "Siti Rodiyah, S.Pd.",
+      "subject": "BIN"
+    },
+    {
+      "no": 11,
+      "code": "PN",
+      "name": "Panti Rusmiyati, M.Pd.",
+      "subject": "BIN"
+    },
+    {
+      "no": 12,
+      "code": "AF",
+      "name": "Adinda Faradilla Larasati,S.Pd.",
+      "subject": "BIN"
+    },
+    {
+      "no": 13,
+      "code": "RZ",
+      "name": "Rizki Adistya Zubaida, S.Pd",
+      "subject": "BIN"
+    },
+    {
+      "no": 14,
+      "code": "WD",
+      "name": "Wida Hana Afifah, S.Pd.",
+      "subject": "BIN"
+    },
+    {
+      "no": 15,
+      "code": "BC",
+      "name": "Bagus Cristri Yantono, S.Pd.",
+      "subject": "BIN/PPKn"
+    },
+    {
+      "no": 16,
+      "code": "JG",
+      "name": "Jingga, S.Pd",
+      "subject": "BIN"
+    },
+    {
+      "no": 17,
+      "code": "RT",
+      "name": "Retno Utami Rahayu, S.Pd.",
+      "subject": "MTK"
+    },
+    {
+      "no": 18,
+      "code": "NT",
+      "name": "Sunarto, M.Pd.",
+      "subject": "MTK"
+    },
+    {
+      "no": 19,
+      "code": "EH",
+      "name": "Endah Ariastuti, S.Pd.",
+      "subject": "MTK"
+    },
+    {
+      "no": 20,
+      "code": "DI",
+      "name": "Deny Prayoga, S.Pd.",
+      "subject": "MTK"
+    },
+    {
+      "no": 21,
+      "code": "HP",
+      "name": "Hipo Putri Arisa, S.Pd.",
+      "subject": "MTK"
+    },
+    {
+      "no": 22,
+      "code": "AR",
+      "name": "Artati Rahmiati, S.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 23,
+      "code": "TO",
+      "name": "Toni Aris Setiyawan, S.Pd., M.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 24,
+      "code": "DF",
+      "name": "Dewi Faizah, S.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 25,
+      "code": "FM",
+      "name": "Fita Maftuhah, S.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 26,
+      "code": "HO",
+      "name": "Harintya Oktavi Ayu Kusuma, S.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 27,
+      "code": "BA",
+      "name": "Bangkit Sutrisno Putro, S.Pd.",
+      "subject": "IPA"
+    },
+    {
+      "no": 28,
+      "code": "AS",
+      "name": "Sunarsih, M.Pd.",
+      "subject": "IPS"
+    },
+    {
+      "no": 29,
+      "code": "AW",
+      "name": "Atik Wuryati, S.Pd.",
+      "subject": "IPS"
+    },
+    {
+      "no": 30,
+      "code": "BR",
+      "name": "Briliantikta Teha Saraswati, S.Pd.",
+      "subject": "IPS"
+    },
+    {
+      "no": 31,
+      "code": "MA",
+      "name": "Mia Abdilliah Rachmawati, S.Pd",
+      "subject": "IPS"
+    },
+    {
+      "no": 32,
+      "code": "NH",
+      "name": "Nur Hetti Setiyani, M.Pd.",
+      "subject": "BIG"
+    },
+    {
+      "no": 33,
+      "code": "SR",
+      "name": "Sri Mulyani, S.Pd.",
+      "subject": "BIG"
+    },
+    {
+      "no": 34,
+      "code": "SG",
+      "name": "Sugeng Susanto, M.Pd.",
+      "subject": "BIG"
+    },
+    {
+      "no": 35,
+      "code": "DE",
+      "name": "Dwi Eny Sri Madi Hartini, M.Pd",
+      "subject": "BIG"
+    },
+    {
+      "no": 36,
+      "code": "EN",
+      "name": "Endang Widayatni, S.Pd.",
+      "subject": "BIG"
+    },
+    {
+      "no": 37,
+      "code": "DD",
+      "name": "Didik Nurwanto, S. Pd.",
+      "subject": "BIG"
+    },
+    {
+      "no": 38,
+      "code": "MU",
+      "name": "Mujiono, S. Pd.",
+      "subject": "PJOK"
+    },
+    {
+      "no": 39,
+      "code": "FH",
+      "name": "Feri Handika, S. Pd.",
+      "subject": "PJOK"
+    },
+    {
+      "no": 40,
+      "code": "FJ",
+      "name": "Fajar Dwi Prasetya, S.Pd.",
+      "subject": "PJOK"
+    },
+    {
+      "no": 41,
+      "code": "EK",
+      "name": "Endang Kusriningsih, S.Pd, M.M.Pd.",
+      "subject": "SENI TARI"
+    },
+    {
+      "no": 42,
+      "code": "YA",
+      "name": "Yudha Ariyanto, S.Pd",
+      "subject": "SENI MUSIK"
+    },
+    {
+      "no": 43,
+      "code": "YG",
+      "name": "Harintayoga Adhi Pratama, S.Pd",
+      "subject": "S. MUSIK/PPKn"
+    },
+    {
+      "no": 44,
+      "code": "IM",
+      "name": "Imah Purwandari, S.Pd.",
+      "subject": "PKY/IPS"
+    },
+    {
+      "no": 45,
+      "code": "AM",
+      "name": "Alfi Muffaidah, S.Pd.",
+      "subject": "PKY/IPS"
+    },
+    {
+      "no": 46,
+      "code": "FI",
+      "name": "Fitri Widyastuti, S.Pd., S.Kom.",
+      "subject": "INF"
+    },
+    {
+      "no": 47,
+      "code": "HF",
+      "name": "Hafid Miftahurrosyad, S.Kom.",
+      "subject": "INF"
+    },
+    {
+      "no": 48,
+      "code": "LN",
+      "name": "Lathifah Nur'aini Sariwati, S.Pd",
+      "subject": "INF/MTK"
+    },
+    {
+      "no": 49,
+      "code": "RY",
+      "name": "Ratri Yudha Larasati, S.Pd",
+      "subject": "INF/MTK"
+    },
+    {
+      "no": 50,
+      "code": "SN",
+      "name": "Sunardianto, M.Pd.",
+      "subject": "BJW"
+    },
+    {
+      "no": 51,
+      "code": "NS",
+      "name": "Siti Noer Coliful Ch., S.Pd.",
+      "subject": "BJW"
+    },
+    {
+      "no": 52,
+      "code": "DA",
+      "name": "Dinda Mulia Erdiastuty, S.Pd.",
+      "subject": "BJW"
+    },
+    {
+      "no": 53,
+      "code": "GN",
+      "name": "Ghana Pramudya Wisnumurti, S.Pd.",
+      "subject": "BK"
+    },
+    {
+      "no": 54,
+      "code": "IN",
+      "name": "Inna Fitriana, S.Pd.",
+      "subject": "BK"
+    },
+    {
+      "no": 55,
+      "code": "CM",
+      "name": "Chindi Mileniar Maghfiroh, S.Pd",
+      "subject": "BK"
+    }
+  ]
+}

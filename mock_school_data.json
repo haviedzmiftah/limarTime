@@ -1,0 +1,103 @@
+{
+  "school_info": {
+    "name": "SMP Negeri Contoh",
+    "total_classes": 30,
+    "total_teachers": 55,
+    "total_weekly_jp_per_class": 38,
+    "total_school_jp": 1140,
+    "day_structure": [
+      { "day": "Senin", "max_jp": 8 },
+      { "day": "Selasa", "max_jp": 8 },
+      { "day": "Rabu", "max_jp": 8 },
+      { "day": "Kamis", "max_jp": 8 },
+      { "day": "Jumat", "max_jp": 6 }
+    ]
+  },
+  "grade_levels": [
+    { "level": 7, "classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G", "7H", "7I", "7J"] },
+    { "level": 8, "classes": ["8A", "8B", "8C", "8D", "8E", "8F", "8G", "8H", "8I", "8J"] },
+    { "level": 9, "classes": ["9A", "9B", "9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"] }
+  ],
+  "subjects": [
+    { "id": "SUB-01", "name": "Bahasa Indonesia", "jp_per_week": 4, "split_pattern": [2, 2], "is_morning_priority": true },
+    { "id": "SUB-02", "name": "Matematika", "jp_per_week": 4, "split_pattern": [2, 2], "is_morning_priority": true },
+    { "id": "SUB-03", "name": "Bahasa Inggris", "jp_per_week": 4, "split_pattern": [2, 2], "is_morning_priority": true },
+    { "id": "SUB-04", "name": "IPA (Ilmu Pengetahuan Alam)", "jp_per_week": 4, "split_pattern": [2, 2], "is_morning_priority": true },
+    { "id": "SUB-05", "name": "IPS (Ilmu Pengetahuan Sosial)", "jp_per_week": 4, "split_pattern": [2, 2], "is_morning_priority": false },
+    { "id": "SUB-06", "name": "Pendidikan Agama & Budi Pekerti", "jp_per_week": 3, "split_pattern": [3], "is_morning_priority": false },
+    { "id": "SUB-07", "name": "Pendidikan Pancasila / PKn", "jp_per_week": 3, "split_pattern": [3], "is_morning_priority": false },
+    { "id": "SUB-08", "name": "PJOK (Penjaskes)", "jp_per_week": 3, "split_pattern": [3], "is_morning_priority": true },
+    { "id": "SUB-09", "name": "Informatika", "jp_per_week": 2, "split_pattern": [2], "is_morning_priority": false },
+    { "id": "SUB-10", "name": "Seni Budaya", "jp_per_week": 2, "split_pattern": [2], "is_morning_priority": false },
+    { "id": "SUB-11", "name": "Prakarya", "jp_per_week": 2, "split_pattern": [2], "is_morning_priority": false },
+    { "id": "SUB-12", "name": "Bahasa Daerah / Muatan Lokal", "jp_per_week": 3, "split_pattern": [3], "is_morning_priority": false }
+  ],
+  "teachers": [
+    { "id": "G01", "name": "Drs. Ahmad Fauzi, M.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["7A", "7B", "7C", "7D", "7E"], "total_jp": 20 },
+    { "id": "G02", "name": "Siti Nurhaliza, S.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G03", "name": "Budi Santoso, S.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["8A", "8B", "8C", "8D", "8E"], "total_jp": 20 },
+    { "id": "G04", "name": "Dewi Sartika, M.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G05", "name": "Hendra Wijaya, S.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["9A", "9B", "9C", "9D", "9E"], "total_jp": 20 },
+    { "id": "G06", "name": "Ratna Sari, S.Pd.", "subject_id": "SUB-01", "subject_name": "Bahasa Indonesia", "assigned_classes": ["9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G07", "name": "Eko Prasetyo, M.Sc.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["7A", "7B", "7C", "7D", "7E"], "total_jp": 20 },
+    { "id": "G08", "name": "Sri Wahyuni, S.Pd.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G09", "name": "Agus Setiawan, S.Pd.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["8A", "8B", "8C", "8D", "8E"], "total_jp": 20 },
+    { "id": "G10", "name": "Nur Hidayah, M.Pd.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G11", "name": "Fajar Nugraha, S.Pd.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["9A", "9B", "9C", "9D", "9E"], "total_jp": 20 },
+    { "id": "G12", "name": "Yuni Astuti, S.Pd.", "subject_id": "SUB-02", "subject_name": "Matematika", "assigned_classes": ["9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G13", "name": "John Doe, M.Ed.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["7A", "7B", "7C", "7D", "7E"], "total_jp": 20 },
+    { "id": "G14", "name": "Maya Indah, S.Pd.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G15", "name": "Rizky Ramadhan, S.Pd.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["8A", "8B", "8C", "8D", "8E"], "total_jp": 20 },
+    { "id": "G16", "name": "Anita Kusuma, M.Hum.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G17", "name": "Bambang Irawan, S.Pd.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["9A", "9B", "9C", "9D", "9E"], "total_jp": 20 },
+    { "id": "G18", "name": "Citra Lestari, S.Pd.", "subject_id": "SUB-03", "subject_name": "Bahasa Inggris", "assigned_classes": ["9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G19", "name": "Dr. Irwan Syahputra", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["7A", "7B", "7C", "7D", "7E"], "total_jp": 20 },
+    { "id": "G20", "name": "Lestari Dewi, M.Si.", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G21", "name": "Teguh Wibowo, S.Pd.", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["8A", "8B", "8C", "8D", "8E"], "total_jp": 20 },
+    { "id": "G22", "name": "Endang Rahayu, S.Pd.", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G23", "name": "Doni Pratama, S.Si.", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["9A", "9B", "9C", "9D", "9E"], "total_jp": 20 },
+    { "id": "G24", "name": "Tri Utami, M.Pd.", "subject_id": "SUB-04", "subject_name": "IPA (Ilmu Pengetahuan Alam)", "assigned_classes": ["9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G25", "name": "Wahyu Hidayat, S.Pd.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["7A", "7B", "7C", "7D", "7E"], "total_jp": 20 },
+    { "id": "G26", "name": "Rina Marlina, M.Pd.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G27", "name": "Asep Saepullah, S.Pd.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["8A", "8B", "8C", "8D", "8E"], "total_jp": 20 },
+    { "id": "G28", "name": "Nia Kurniawati, S.Pd.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G29", "name": "Sugeng Riyadi, M.M.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["9A", "9B", "9C", "9D", "9E"], "total_jp": 20 },
+    { "id": "G30", "name": "Dina Mariana, S.Pd.", "subject_id": "SUB-05", "subject_name": "IPS (Ilmu Pengetahuan Sosial)", "assigned_classes": ["9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G31", "name": "Ust. Muhammad Ilham, S.Ag.", "subject_id": "SUB-06", "subject_name": "Pendidikan Agama & Budi Pekerti", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G"], "total_jp": 21 },
+    { "id": "G32", "name": "Hj. Fatimah Zahra, M.Pd.I.", "subject_id": "SUB-06", "subject_name": "Pendidikan Agama & Budi Pekerti", "assigned_classes": ["7H", "7I", "7J", "8A", "8B", "8C", "8D"], "total_jp": 21 },
+    { "id": "G33", "name": "Drs. Syarifuddin, M.Ag.", "subject_id": "SUB-06", "subject_name": "Pendidikan Agama & Budi Pekerti", "assigned_classes": ["8E", "8F", "8G", "8H", "8I", "8J", "9A", "9B"], "total_jp": 24 },
+    { "id": "G34", "name": "Khadijah, S.Pd.I.", "subject_id": "SUB-06", "subject_name": "Pendidikan Agama & Budi Pekerti", "assigned_classes": ["9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 24 },
+
+    { "id": "G35", "name": "Drs. Suhardi, M.H.", "subject_id": "SUB-07", "subject_name": "Pendidikan Pancasila / PKn", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G"], "total_jp": 21 },
+    { "id": "G36", "name": "Ratnawati, S.Pd.", "subject_id": "SUB-07", "subject_name": "Pendidikan Pancasila / PKn", "assigned_classes": ["7H", "7I", "7J", "8A", "8B", "8C", "8D"], "total_jp": 21 },
+    { "id": "G37", "name": "Mansyur Effendi, S.H.", "subject_id": "SUB-07", "subject_name": "Pendidikan Pancasila / PKn", "assigned_classes": ["8E", "8F", "8G", "8H", "8I", "8J", "9A", "9B"], "total_jp": 24 },
+    { "id": "G38", "name": "Lili Marlina, M.Pd.", "subject_id": "SUB-07", "subject_name": "Pendidikan Pancasila / PKn", "assigned_classes": ["9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 24 },
+
+    { "id": "G39", "name": "Rahmat Hidayat, S.Pd.", "subject_id": "SUB-08", "subject_name": "PJOK (Penjaskes)", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G"], "total_jp": 21 },
+    { "id": "G40", "name": "Bayu Perkasa, S.Or.", "subject_id": "SUB-08", "subject_name": "PJOK (Penjaskes)", "assigned_classes": ["7H", "7I", "7J", "8A", "8B", "8C", "8D"], "total_jp": 21 },
+    { "id": "G41", "name": "Dimas Anggara, S.Pd.", "subject_id": "SUB-08", "subject_name": "PJOK (Penjaskes)", "assigned_classes": ["8E", "8F", "8G", "8H", "8I", "8J", "9A", "9B"], "total_jp": 24 },
+    { "id": "G42", "name": "Rian Ardiansyah, M.Pd.", "subject_id": "SUB-08", "subject_name": "PJOK (Penjaskes)", "assigned_classes": ["9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 24 },
+
+    { "id": "G43", "name": "Ade Kurniawan, S.Kom.", "subject_id": "SUB-09", "subject_name": "Informatika", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G44", "name": "Gita Gutawa, M.Kom.", "subject_id": "SUB-09", "subject_name": "Informatika", "assigned_classes": ["8A", "8B", "8C", "8D", "8E", "8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G45", "name": "Ferry Salim, S.Kom.", "subject_id": "SUB-09", "subject_name": "Informatika", "assigned_classes": ["9A", "9B", "9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G46", "name": "Raden Mas Bagus, S.Sn.", "subject_id": "SUB-10", "subject_name": "Seni Budaya", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G47", "name": "Tiara Andini, M.Sn.", "subject_id": "SUB-10", "subject_name": "Seni Budaya", "assigned_classes": ["8A", "8B", "8C", "8D", "8E", "8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G48", "name": "Iwan Fals, S.Pd.", "subject_id": "SUB-10", "subject_name": "Seni Budaya", "assigned_classes": ["9A", "9B", "9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G49", "name": "Wulan Guritno, S.T.", "subject_id": "SUB-11", "subject_name": "Prakarya", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G", "7H", "7I", "7J"], "total_jp": 20 },
+    { "id": "G50", "name": "Lukman Sardi, S.Pd.", "subject_id": "SUB-11", "subject_name": "Prakarya", "assigned_classes": ["8A", "8B", "8C", "8D", "8E", "8F", "8G", "8H", "8I", "8J"], "total_jp": 20 },
+    { "id": "G51", "name": "Dian Sastrowardoyo, M.Ds.", "subject_id": "SUB-11", "subject_name": "Prakarya", "assigned_classes": ["9A", "9B", "9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 20 },
+
+    { "id": "G52", "name": "Ki Joko Bodo, S.Pd.", "subject_id": "SUB-12", "subject_name": "Bahasa Daerah / Muatan Lokal", "assigned_classes": ["7A", "7B", "7C", "7D", "7E", "7F", "7G"], "total_jp": 21 },
+    { "id": "G53", "name": "Sri Rejeki, M.Pd.", "subject_id": "SUB-12", "subject_name": "Bahasa Daerah / Muatan Lokal", "assigned_classes": ["7H", "7I", "7J", "8A", "8B", "8C", "8D"], "total_jp": 21 },
+    { "id": "G54", "name": "Totok Suharto, S.Pd.", "subject_id": "SUB-12", "subject_name": "Bahasa Daerah / Muatan Lokal", "assigned_classes": ["8E", "8F", "8G", "8H", "8I", "8J", "9A", "9B"], "total_jp": 24 },
+    { "id": "G55", "name": "Endah Laras, S.Sn.", "subject_id": "SUB-12", "subject_name": "Bahasa Daerah / Muatan Lokal", "assigned_classes": ["9C", "9D", "9E", "9F", "9G", "9H", "9I", "9J"], "total_jp": 24 }
+  ]
+}
