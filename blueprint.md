@@ -7,9 +7,13 @@ Dokumen ini merupakan integrasi menyeluruh dari rencana perancangan, arsitektur 
 
 ## 1. Profil Platform & Arsitektur Sistem
 
-* **Jenis Aplikasi**: Web Application Modern (Next.js / React) yang responsif:
-  * **Desktop / Laptop**: Untuk Dashboard Admin Kurikulum, Master Data, Interactive Timetable Editor, dan Engine Generator.
-  * **Mobile Phone**: Untuk Tampilan Jadwal Publik (*Mobile Public Viewer*) bagi siswa, wali murid, dan guru tanpa perlu login admin.
+* **Jenis Aplikasi**: Web Application Modern (Next.js / React) dengan dual-access role:
+  * **Admin / Tim Kurikulum (Protected Access - Wajib Login)**:
+    * Autentikasi aman berbasis **Username & Password**.
+    * Akses penuh ke: Dashboard Admin, Manajemen Data Master & Bell Schedule, Auto-Generate Engine, Interactive Drag-and-Drop Matrix, dan Cetak PDF/Excel.
+  * **Publik / Siswa, Wali Murid & Guru (Public Access - Tanpa Login)**:
+    * Akses langsung ke portal jadwal sekolah (*Mobile Public Viewer*).
+    * Pencarian instan jadwal harian & mingguan per kelas (7A–9J) atau per nama guru tanpa memerlukan akun atau kata sandi.
 * **Pendekatan Penjadwalan**: **Semi-Otomatis (Hybrid Intelligent Scheduling)**:
   1. **Langkah 1 (Auto-Solve)**: Algoritma cerdas menyusun draf jadwal otomatis berbasis *Constraint Satisfaction Problem* (menjamin 0 bentrok / zero hard-conflict).
   2. **Langkah 2 (Fine-Tuning Manual)**: Operator kurikulum dapat menggeser/menukar jadwal secara manual via **Drag & Drop Timetable Matrix** dengan validasi bentrok instan secara visual.
@@ -150,6 +154,17 @@ erDiagram
 ---
 
 ## 6. Modul & Fitur Utama Aplikasi
+
+### Modul 0: Autentikasi & Keamanan Akses Admin (*Authentication & RBAC*)
+* **Halaman Login Admin**:
+  * Form input **Username & Password** dengan validasi kredensial aman.
+  * Fitur *Show/Hide Password*, proteksi *Brute-Force rate limiting*, dan pesan validasi intuitif.
+  * Pengelolaan sesi login admin (Cookie/JWT Session token).
+* **Proteksi Akses (Route Guard / Middleware)**:
+  * Rute dashboard admin (`/admin/*`), manajemen data master, generator, dan timetable editor otomatis dialihkan ke halaman login jika belum terautentikasi.
+  * Fitur **Logout Cepat** dan status bar admin yang menampilkan identitas pengguna aktif.
+* **Akses Publik Bebas Hambatan (`/` atau `/jadwal`)**:
+  * Pengunjung umum (siswa, orang tua, guru umum) langsung disajikan tampilan jadwal publik tanpa diarahkan ke layar login.
 
 ### Modul 1: Manajemen Data Master & Konfigurasi Jam Belajar (*Bell Schedule*)
 * **Editor Jam Pelajaran Fleksibel**:
