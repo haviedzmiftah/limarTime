@@ -21,7 +21,9 @@ Dokumen ini merupakan integrasi menyeluruh dari rencana perancangan, arsitektur 
 ### Tech Stack Rekomendasi
 * **Frontend**: React / Next.js, Vanilla CSS / Tailwind CSS, Modern UI dengan visual feedback real-time, Drag-and-Drop scheduling grid.
 * **Backend & Processing**: Node.js / TypeScript (Web Worker / Background Processing) atau FastAPI (Python) terintegrasi solver CP-SAT (`Google OR-Tools`).
-* **Penyimpanan Data**: PostgreSQL / SQLite / JSON Store terstruktur untuk relasi Guru, Mapel, Rombel, dan Slot Waktu.
+* **Penyimpanan Data & ORM**:
+  * **Database**: **PostgreSQL** atau **MySQL** (dukungan dialek `pg` / `mysql2`).
+  * **ORM**: **Drizzle ORM** (dengan Drizzle Kit untuk migrasi skema deklaratif, *zero-overhead*, *edge-ready*, dukungan TypeScript murni, serta integrasi mulus dengan GraphQL resolver untuk data Guru, Mapel, Rombel, Bell Schedule, dan Timetable Slots).
 * **Pencetakan & Dokumen**: Generator PDF & XLSX siap cetak otomatis (A4/F4 portrait & landscape).
 
 ---
@@ -198,24 +200,29 @@ erDiagram
 * Antarmuka web publik yang ringan dan ramah ponsel (*mobile-optimized*) tanpa perlu login.
 * Pencarian instan: Siswa atau guru cukup memilih rombel mereka (misal: 8B) atau memilih nama guru untuk melihat jadwal hari ini dan sepekan penuh.
 
+### Modul 6: Public GraphQL API & External Web Integration
+* **GraphQL Endpoint**: Endpoint terpadu (misal `/api/graphql`) berbasis Next.js API Routes / Yoga / Apollo Server.
+* **CORS & Read-only Access**: Dilengkapi konfigurasi CORS aman untuk dikonsumsi langsung oleh website eksternal (website sekolah, portal siswa/guru, CMS sekolah, atau display TV digital sekolah).
+* **Schema & Query Utama**:
+  * `classes(grade: Int)`: Daftar rombel beserta detail jadwal aktif.
+  * `teachers(query: String)`: Daftar 55 guru, kode inisial, dan jadwal mengajar per hari/minggu.
+  * `schedule(className: String, teacherCode: String, day: DayOfWeek)`: Query fleksibel jadwal belajar mengajar berdasarkan filter tertentu.
+  * `bellSchedule(day: DayOfWeek)`: Konfigurasi jam pelajaran (JP), jam mulai/selesai, serta durasi (40m / 30m).
+* **Fitur Embed / Widget**: Dokumentasi query, GraphQL Playground / Explorer, serta contoh integrasi JavaScript client-side (Fetch API / Apollo Client / React hook) untuk dipasang di website lain.
+
 ---
 
 ## 7. Roadmap & Rencana Implementasi
 
-1. **Tahap 1: Setup Lingkungan & Arsitektur Frontend/Backend**
-   * Inisialisasi project web di direktori workspace `limarTime`.
-   * Penyiapan struktur komponen, styling modern, dan state management.
-2. **Tahap 2: Integrasi Data Master SMP Negeri 1 Ngawi**
-   * Integrasi data riil `smpn1_ngawi_real_data.json` (30 rombel, 55 guru, penugasan mengajar, jam harian).
-   * Verifikasi integritas data master.
-3. **Tahap 3: Implementasi Scheduling Solver Engine**
-   * Implementasi algoritma constraint satisfaction solver (0 bentrok hard constraints, pembagian sesi 2+2).
-   * Fitur auto-generate draft jadwal dengan evaluasi skor fitness.
-4. **Tahap 4: Pembuatan Interactive Timetable Matrix UI**
-   * Tampilan matriks grid per kelas dan per guru.
-   * Interaksi drag-and-drop & slot swapping dilengkapi validator bentrok real-time.
-5. **Tahap 5: Fitur Ekspor & Cetak Dokumen**
-   * Export otomatis PDF/XLSX: 55 lembar jadwal per guru, 30 lembar jadwal per kelas, dan 1 lembar Jadwal Induk Sekolah.
-6. **Tahap 6: Mobile Public Timetable Viewer & Finishing**
-   * Halaman jadwal publik yang cepat dan responsif untuk smartphone siswa/guru.
-   * Uji coba menyeluruh dan finalisasi dokumentasi.
+Seluruh pelacakan progres detail dari setiap milestone implementasi dicatat secara terpusat dan interaktif pada dokumen:
+👉 **[ROADMAP.md (Progress Tracker Proyek)](file:///d:/Web%20Project/limarTime/ROADMAP.md)**
+
+### Ringkasan 8 Fase Pengerjaan:
+1. **Fase 0: Blueprint & Fondasi Arsitektur** *(Selesai ✅)*: Parameter SMPN 1 Ngawi, struktur JP, constraints engine, skema data.
+2. **Fase 1: Setup Workspace & Modern Frontend Skeleton**: Inisialisasi Next.js, Core Design System, shell navigasi Admin & Publik.
+3. **Fase 2: Database Layer & Drizzle ORM (MySQL / PostgreSQL)**: Konfigurasi Drizzle ORM, migrasi skema tabel, dan database seeder dari dataset riil 55 guru & 30 rombel.
+4. **Fase 3: Intelligent Scheduling Solver Engine**: Algoritma CSP solving (0 bentrok hard-constraints, distribusi sesi 2+2, multi-draft management).
+5. **Fase 4: Interactive Timetable Matrix UI (Drag & Drop)**: Matriks jadwal interaktif per kelas & per guru, slot swapping, real-time visual conflict detector.
+6. **Fase 5: GraphQL API Server & Integrasi Website Eksternal**: Endpoint `/api/graphql` (CORS ready), GraphQL Explorer, dan Web Widget siap tempel untuk website lain.
+7. **Fase 6: Cetak Dokumen Resmi & Ekspor Laporan**: Generator PDF 55 lembar jadwal guru, 30 lembar jadwal dinding kelas, dan rekap Jadwal Induk (Excel/PDF).
+8. **Fase 7: Mobile Public Timetable Viewer & Deployment**: Portal jadwal publik super cepat untuk smartphone siswa/wali murid, optimasi caching PWA, serta pengujian akhir.
