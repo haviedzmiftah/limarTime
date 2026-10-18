@@ -1,0 +1,26 @@
+{
+  "name": "limartime-backend",
+  "version": "1.0.0",
+  "description": "Standalone Backend API Server for limarTime (SMP Negeri 1 Ngawi) powered by Hono and Drizzle ORM",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "db:seed": "tsx src/db/seed.ts"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.13.7",
+    "@libsql/client": "^0.18.0",
+    "dotenv": "^16.4.7",
+    "drizzle-orm": "^0.45.4",
+    "hono": "^4.6.14",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.10",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

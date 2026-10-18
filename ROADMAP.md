@@ -127,7 +127,20 @@ Dokumen ini adalah **pelacak progres (Progress Tracker)** resmi untuk memantau s
 
 ---
 
+### 📍 Fase 8: CMS Kurikulum & Manajemen Jadwal Admin
+> **Fokus**: Panel administratif interaktif untuk mengelola slot, mengunci jadwal, inspeksi beban guru, dan kontrol AI solver.
+- [x] Portal CMS Admin terpusat di [/admin](file:///d:/Web%20Project/limarTime/src/app/admin/page.tsx).
+- [x] API Admin Pengelola Slot Jadwal ([/api/admin/schedule-slots](file:///d:/Web%20Project/limarTime/src/app/api/admin/schedule-slots/route.ts)) mendukung Update JP, Toggle Lock/Unlock, dan Reset/Hapus Slot.
+- [x] API Master Data & Dashboard Metrik Kurikulum ([/api/admin/master-data](file:///d:/Web%20Project/limarTime/src/app/api/admin/master-data/route.ts)) untuk 55 Guru, 30 Rombel, 12 Mapel, dan ribuan slot.
+- [x] Antarmuka manajemen guru, pencarian instan, dan inspeksi batas beban JP (maks JP/minggu & maks JP/hari).
+- [x] Integrasi langsung dengan Algoritma Solver Jadwal Otomatis dengan proteksi slot terkunci.
+- **Status Fase**: ✅ **COMPLETED**
+
+---
+
 ## 📌 Catatan & Log Pembaruan
+* **2026-10-18**:
+  * Modul **CMS Admin Pengelola Jadwal** selesai diimplementasikan di route [/admin](file:///d:/Web%20Project/limarTime/src/app/admin/page.tsx) lengkap dengan CRUD slot pembelajaran, toggle lock/unlock, tab data 55 guru & mapel, serta eksekusi auto-solver.
 * **2026-10-14**:
   * Blueprint arsitektur diperbarui dengan spesifikasi **Drizzle ORM** (MySQL/PostgreSQL) dan **GraphQL API**.
   * File tracking [ROADMAP.md](file:///d:/Web%20Project/limarTime/ROADMAP.md) resmi dibuat untuk melacak tahapan implementasi.
