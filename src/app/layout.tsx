@@ -11,6 +11,19 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "limarTime - Sistem Informasi Penjadwalan SMP Negeri 1 Ngawi",
   description: "Portal jadwal pelajaran pintar, real-time timetable matrix, dan GraphQL API untuk SMP Negeri 1 Ngawi",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "limarTime",
+  },
+};
+
+export const viewport = {
+  themeColor: "#020617",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

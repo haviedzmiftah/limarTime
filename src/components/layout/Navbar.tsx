@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Clock, Calendar, Shield, Share2, Layers, BookOpen } from "lucide-react";
+import { Clock, Calendar, Shield, Share2, Layers, BookOpen, Printer } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -10,6 +10,7 @@ export function Navbar() {
   const navLinks = [
     { href: "/", label: "Portal Publik", icon: Clock },
     { href: "/matrix", label: "Matriks Jadwal", icon: Layers },
+    { href: "/export", label: "Cetak & Ekspor", icon: Printer },
     { href: "/graphql-docs", label: "GraphQL API", icon: Share2 },
     { href: "/admin", label: "Admin Kurikulum", icon: Shield },
   ];
