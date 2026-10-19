@@ -1,0 +1,77 @@
+/* =========================================================================
+   limarTime Admin CMS Stylesheet
+   Separated CSS classes for Admin Dashboard layout, transitions & components
+   ========================================================================= */
+
+.admin-glass-sidebar {
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-right: 1px solid rgba(51, 65, 85, 0.8);
+}
+
+.admin-topbar {
+  background: rgba(2, 6, 23, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.7);
+}
+
+.admin-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  border-radius: 1rem;
+}
+
+.admin-table-container {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgb(30, 41, 59);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.admin-modal-backdrop {
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.admin-modal-content {
+  background: rgb(15, 23, 42);
+  border: 1px solid rgb(51, 65, 85);
+  border-radius: 1.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.admin-input {
+  background: rgb(2, 6, 23);
+  border: 1px solid rgb(30, 41, 59);
+  color: rgb(241, 245, 249);
+  border-radius: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.admin-input:focus {
+  border-color: rgb(59, 130, 246);
+  box-shadow: 0 0 0 1px rgb(59, 130, 246);
+}
+
+.admin-btn-primary {
+  background: linear-gradient(to right, rgb(37, 99, 235), rgb(79, 70, 229));
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.25);
+}
+
+.admin-btn-primary:hover {
+  background: linear-gradient(to right, rgb(59, 130, 246), rgb(99, 102, 241));
+  transform: scale(1.02);
+}
+
+.admin-btn-primary:active {
+  transform: scale(0.98);
+}
