@@ -1,7 +1,7 @@
 import { Menu, Sparkles } from "lucide-react";
 
 interface AdminHeaderProps {
-  activeTab: "schedule" | "teachers" | "subjects" | "solver";
+  activeTab: "schedule" | "teachers" | "subjects" | "bell" | "solver";
   onOpenMobileSidebar: () => void;
   onRunSolver: () => void;
   isSolving: boolean;
@@ -21,6 +21,8 @@ export function AdminHeader({
         return "Manajemen Data Guru";
       case "subjects":
         return "Data Mata Pelajaran";
+      case "bell":
+        return "Struktur Hari & Jam Belajar";
       case "solver":
         return "AI Timetable Auto-Solver";
     }

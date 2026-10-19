@@ -46,7 +46,18 @@ export interface ScheduleSlot {
   conflictFlag: string | null;
 }
 
+export interface BellSchedule {
+  id: string;
+  day: string;
+  jp: number;
+  timeRange: string;
+  durationMinutes: number;
+  isBreak: boolean;
+  breakName: string | null;
+}
+
 export interface ToastMessage {
   text: string;
   type: "success" | "error";
 }
+

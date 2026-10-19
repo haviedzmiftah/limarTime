@@ -1,5 +1,6 @@
 import { Search, Plus, Edit3, Trash2 } from "lucide-react";
 import { Teacher } from "@/types/admin";
+import { Button, Input } from "@/components/ui";
 
 interface TeachersTabProps {
   teachersList: Teacher[];
@@ -30,23 +31,22 @@ export function TeachersTab({
       {/* Search & Actions Bar */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div className="relative flex-1 max-w-sm">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
-          <input
-            type="text"
+          <Input
             placeholder="Cari nama guru, NIP, atau kode..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-slate-900 border border-slate-800 rounded-xl pl-9 pr-4 py-2 text-xs text-slate-200 outline-none focus:border-blue-500"
+            leftIcon={<Search className="w-4 h-4" />}
           />
         </div>
 
-        <button
+        <Button
           onClick={onOpenAddTeacher}
-          className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+          variant="primary"
+          size="sm"
+          leftIcon={<Plus className="w-4 h-4" />}
         >
-          <Plus className="w-4 h-4" />
           Tambah Guru Baru
-        </button>
+        </Button>
       </div>
 
       {/* Teachers Table */}

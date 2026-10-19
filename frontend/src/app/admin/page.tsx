@@ -7,6 +7,7 @@ import { AdminMetricsBar } from "@/components/admin/AdminMetricsBar";
 import { ScheduleTab } from "@/components/admin/ScheduleTab";
 import { TeachersTab } from "@/components/admin/TeachersTab";
 import { SubjectsTab } from "@/components/admin/SubjectsTab";
+import { BellTab } from "@/components/admin/BellTab";
 import { SolverTab } from "@/components/admin/SolverTab";
 import { AdminModals } from "@/components/admin/AdminModals";
 import { ShieldCheck, CheckCircle2, AlertCircle } from "lucide-react";
@@ -132,7 +133,22 @@ export default function AdminScheduleCMSPage() {
             />
           )}
 
-          {/* TAB 4: AUTO SOLVER */}
+          {/* TAB 4: HARI & JAM BELAJAR (BELL SCHEDULES CRUD) */}
+          {admin.activeTab === "bell" && (
+            <BellTab
+              days={admin.days}
+              selectedBellDay={admin.selectedBellDay}
+              setSelectedBellDay={admin.setSelectedBellDay}
+              bellSchedulesList={admin.bellSchedulesList}
+              loadingBell={admin.loadingBell}
+              onRefresh={admin.loadBellSchedules}
+              onOpenAddBell={admin.handleOpenAddBell}
+              onOpenEditBell={admin.handleOpenEditBell}
+              onConfirmDelete={(bell) => admin.setDeletingBell(bell)}
+            />
+          )}
+
+          {/* TAB 5: AUTO SOLVER */}
           {admin.activeTab === "solver" && (
             <SolverTab
               isSolving={admin.isSolving}
@@ -148,7 +164,7 @@ export default function AdminScheduleCMSPage() {
         </main>
       </div>
 
-      {/* 3. DIALOG / MODAL (Edit Slot, Guru CRUD, Mapel CRUD) */}
+      {/* 3. DIALOG / MODAL (Edit Slot, Guru CRUD, Mapel CRUD, Bell CRUD) */}
       <AdminModals
         editingSlot={admin.editingSlot}
         setEditingSlot={admin.setEditingSlot}
@@ -185,6 +201,17 @@ export default function AdminScheduleCMSPage() {
         deletingSubject={admin.deletingSubject}
         setDeletingSubject={admin.setDeletingSubject}
         onConfirmDeleteSubject={admin.handleConfirmDeleteSubject}
+        days={admin.days}
+        isBellModalOpen={admin.isBellModalOpen}
+        setIsBellModalOpen={admin.setIsBellModalOpen}
+        editingBell={admin.editingBell}
+        bellFormData={admin.bellFormData}
+        setBellFormData={admin.setBellFormData}
+        onSubmitBell={admin.handleSubmitBell}
+        isSubmittingBell={admin.isSubmittingBell}
+        deletingBell={admin.deletingBell}
+        setDeletingBell={admin.setDeletingBell}
+        onConfirmDeleteBell={admin.handleConfirmDeleteBell}
       />
     </div>
   );

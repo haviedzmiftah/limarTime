@@ -18,8 +18,8 @@ interface AdminSidebarProps {
   setIsSidebarCollapsed: (v: boolean) => void;
   isMobileSidebarOpen: boolean;
   setIsMobileSidebarOpen: (v: boolean) => void;
-  activeTab: "schedule" | "teachers" | "subjects" | "solver";
-  setActiveTab: (tab: "schedule" | "teachers" | "subjects" | "solver") => void;
+  activeTab: "schedule" | "teachers" | "subjects" | "bell" | "solver";
+  setActiveTab: (tab: "schedule" | "teachers" | "subjects" | "bell" | "solver") => void;
   teachersCount: number;
   subjectsCount: number;
   onLogout: () => void;
@@ -153,6 +153,22 @@ export function AdminSidebar({
                   {subjectsCount}
                 </span>
               )}
+            </button>
+
+            <button
+              onClick={() => {
+                setActiveTab("bell");
+                setIsMobileSidebarOpen(false);
+              }}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+                activeTab === "bell"
+                  ? "bg-blue-600 text-white shadow-lg shadow-blue-600/25"
+                  : "text-slate-400 hover:text-slate-200 hover:bg-slate-800/60"
+              }`}
+              title="Hari & Jam Belajar"
+            >
+              <Clock className="w-4 h-4 shrink-0 text-sky-400" />
+              {!isSidebarCollapsed && <span>Hari & Jam Belajar</span>}
             </button>
 
             <button

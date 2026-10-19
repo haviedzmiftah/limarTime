@@ -6,13 +6,14 @@ import {
   Classroom,
   Subject,
   ScheduleSlot,
+  BellSchedule,
   ToastMessage,
 } from "@/types/admin";
 
 export function useAdmin() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
-  const [activeTab, setActiveTab] = useState<"schedule" | "teachers" | "subjects" | "solver">("schedule");
+  const [activeTab, setActiveTab] = useState<"schedule" | "teachers" | "subjects" | "bell" | "solver">("schedule");
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
@@ -65,6 +66,23 @@ export function useAdmin() {
   });
   const [deletingSubject, setDeletingSubject] = useState<Subject | null>(null);
   const [isSubmittingSubject, setIsSubmittingSubject] = useState(false);
+
+  // Bell Schedules (Hari & Jam) State
+  const [bellSchedulesList, setBellSchedulesList] = useState<BellSchedule[]>([]);
+  const [selectedBellDay, setSelectedBellDay] = useState("Senin");
+  const [loadingBell, setLoadingBell] = useState(false);
+  const [isBellModalOpen, setIsBellModalOpen] = useState(false);
+  const [editingBell, setEditingBell] = useState<BellSchedule | null>(null);
+  const [bellFormData, setBellFormData] = useState({
+    day: "Senin",
+    jp: 1,
+    timeRange: "",
+    durationMinutes: 40,
+    isBreak: false,
+    breakName: "",
+  });
+  const [deletingBell, setDeletingBell] = useState<BellSchedule | null>(null);
+  const [isSubmittingBell, setIsSubmittingBell] = useState(false);
 
   // Solver Tab State
   const [isSolving, setIsSolving] = useState(false);
@@ -429,6 +447,7 @@ export function useAdmin() {
 
   const handleConfirmDeleteSubject = async () => {
     if (!deletingSubject) return;
+
     try {
       setIsSubmittingSubject(true);
       const res = await fetch(`/api/admin/subjects?id=${deletingSubject.id}`, {
@@ -436,17 +455,130 @@ export function useAdmin() {
       });
       const data = await res.json();
       if (data.success) {
-        showToast(data.message || "Mata pelajaran berhasil dihapus.");
+        showToast(data.message || "Mata pelajaran berhasil dihapus");
         setDeletingSubject(null);
         loadMasterData();
-        loadSchedule();
       } else {
         showToast(data.error || "Gagal menghapus mata pelajaran.", "error");
       }
     } catch (err) {
-      showToast("Gagal menghapus mata pelajaran.", "error");
+      showToast("Terjadi kesalahan sistem saat menghapus mata pelajaran.", "error");
     } finally {
       setIsSubmittingSubject(false);
+    }
+  };
+
+  // Load Bell Schedules
+  const loadBellSchedules = useCallback(async () => {
+    try {
+      setLoadingBell(true);
+      const res = await fetch(`/api/admin/bell-schedules?day=${selectedBellDay}`);
+      const data = await res.json();
+      if (data.success) {
+        setBellSchedulesList(data.bellSchedules || []);
+      }
+    } catch (err) {
+      console.error("Gagal memuat jadwal jam belajar:", err);
+    } finally {
+      setLoadingBell(false);
+    }
+  }, [selectedBellDay]);
+
+  useEffect(() => {
+    loadBellSchedules();
+  }, [loadBellSchedules]);
+
+  // Bell Schedules Handlers
+  const handleOpenAddBell = () => {
+    setEditingBell(null);
+    const nextJp = bellSchedulesList.length > 0
+      ? Math.max(...bellSchedulesList.map((b) => b.jp)) + 1
+      : 1;
+    setBellFormData({
+      day: selectedBellDay,
+      jp: nextJp,
+      timeRange: "",
+      durationMinutes: 40,
+      isBreak: false,
+      breakName: "",
+    });
+    setIsBellModalOpen(true);
+  };
+
+  const handleOpenEditBell = (bell: BellSchedule) => {
+    setEditingBell(bell);
+    setBellFormData({
+      day: bell.day,
+      jp: bell.jp,
+      timeRange: bell.timeRange,
+      durationMinutes: bell.durationMinutes,
+      isBreak: bell.isBreak,
+      breakName: bell.breakName || "",
+    });
+    setIsBellModalOpen(true);
+  };
+
+  const handleSubmitBell = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!bellFormData.timeRange.trim()) {
+      showToast("Rentang waktu jam belajar wajib diisi.", "error");
+      return;
+    }
+
+    try {
+      setIsSubmittingBell(true);
+      const isEdit = !!editingBell;
+      const res = await fetch("/api/admin/bell-schedules", {
+        method: isEdit ? "PUT" : "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          id: editingBell?.id,
+          day: bellFormData.day,
+          jp: Number(bellFormData.jp),
+          timeRange: bellFormData.timeRange.trim(),
+          durationMinutes: Number(bellFormData.durationMinutes) || 40,
+          isBreak: bellFormData.isBreak,
+          breakName: bellFormData.isBreak ? bellFormData.breakName : null,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        showToast(data.message || (isEdit ? "Jam belajar berhasil diupdate" : "Jam belajar berhasil ditambah"));
+        setIsBellModalOpen(false);
+        setEditingBell(null);
+        loadBellSchedules();
+        loadSchedule();
+      } else {
+        showToast(data.error || "Gagal menyimpan jam belajar.", "error");
+      }
+    } catch (err) {
+      showToast("Terjadi kesalahan sistem saat menyimpan jam belajar.", "error");
+    } finally {
+      setIsSubmittingBell(false);
+    }
+  };
+
+  const handleConfirmDeleteBell = async () => {
+    if (!deletingBell) return;
+    try {
+      setIsSubmittingBell(true);
+      const res = await fetch(`/api/admin/bell-schedules?id=${deletingBell.id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success) {
+        showToast(data.message || "Jam belajar berhasil dihapus.");
+        setDeletingBell(null);
+        loadBellSchedules();
+        loadSchedule();
+      } else {
+        showToast(data.error || "Gagal menghapus jam belajar.", "error");
+      }
+    } catch (err) {
+      showToast("Gagal menghapus jam belajar.", "error");
+    } finally {
+      setIsSubmittingBell(false);
     }
   };
 
@@ -500,6 +632,19 @@ export function useAdmin() {
     deletingSubject,
     setDeletingSubject,
     isSubmittingSubject,
+    // Bell Schedules (Hari & Jam)
+    bellSchedulesList,
+    selectedBellDay,
+    setSelectedBellDay,
+    loadingBell,
+    isBellModalOpen,
+    setIsBellModalOpen,
+    editingBell,
+    bellFormData,
+    setBellFormData,
+    deletingBell,
+    setDeletingBell,
+    isSubmittingBell,
     isSolving,
     solverResult,
     days,
@@ -507,6 +652,7 @@ export function useAdmin() {
     handleLogout,
     loadMasterData,
     loadSchedule,
+    loadBellSchedules,
     handleOpenEditSlot,
     handleSaveSlot,
     handleToggleLock,
@@ -520,5 +666,9 @@ export function useAdmin() {
     handleOpenEditSubject,
     handleSubmitSubject,
     handleConfirmDeleteSubject,
+    handleOpenAddBell,
+    handleOpenEditBell,
+    handleSubmitBell,
+    handleConfirmDeleteBell,
   };
 }
