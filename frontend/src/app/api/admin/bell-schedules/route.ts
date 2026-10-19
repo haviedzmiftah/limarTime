@@ -2,10 +2,12 @@ import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { bellSchedules, timetableSlots } from "@/db/schema";
 import { eq, asc, and } from "drizzle-orm";
+import { sortByStartTime } from "@/lib/utils";
 
 /**
  * GET /api/admin/bell-schedules
  * Mengambil seluruh jadwal jam bel (bell schedules) per hari atau seluruhnya
+ * Diurutkan dari pagi ke siang berdasarkan rentang jam (timeRange)
  */
 export async function GET(request: Request) {
   try {
@@ -15,14 +17,14 @@ export async function GET(request: Request) {
     let query = db.select().from(bellSchedules);
 
     if (day) {
-      const list = await query
-        .where(eq(bellSchedules.day, day))
-        .orderBy(asc(bellSchedules.jp));
-      return NextResponse.json({ success: true, bellSchedules: list });
+      const list = await query.where(eq(bellSchedules.day, day));
+      const sortedList = sortByStartTime(list);
+      return NextResponse.json({ success: true, bellSchedules: sortedList });
     }
 
-    const list = await query.orderBy(asc(bellSchedules.day), asc(bellSchedules.jp));
-    return NextResponse.json({ success: true, bellSchedules: list });
+    const list = await query.orderBy(asc(bellSchedules.day));
+    const sortedList = sortByStartTime(list);
+    return NextResponse.json({ success: true, bellSchedules: sortedList });
   } catch (error: any) {
     return NextResponse.json(
       { success: false, error: error.message || "Gagal memuat jadwal jam bel" },

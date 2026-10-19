@@ -2,6 +2,7 @@ import { createSchema, createYoga } from "graphql-yoga";
 import { db } from "@/db";
 import { classrooms, teachers, subjects, bellSchedules, timetableSlots } from "@/db/schema";
 import { eq, and, asc, like } from "drizzle-orm";
+import { sortByStartTime } from "@/lib/utils";
 
 const typeDefs = /* GraphQL */ `
   type SchoolInfo {
@@ -110,13 +111,14 @@ const resolvers = {
 
     bellSchedule: async (_: unknown, { day }: { day?: string }) => {
       if (day) {
-        return await db
+        const list = await db
           .select()
           .from(bellSchedules)
-          .where(eq(bellSchedules.day, day))
-          .orderBy(asc(bellSchedules.jp));
+          .where(eq(bellSchedules.day, day));
+        return sortByStartTime(list);
       }
-      return await db.select().from(bellSchedules).orderBy(asc(bellSchedules.day), asc(bellSchedules.jp));
+      const list = await db.select().from(bellSchedules).orderBy(asc(bellSchedules.day));
+      return sortByStartTime(list);
     },
 
     schedule: async (
@@ -133,12 +135,12 @@ const resolvers = {
         versionId?: string;
       }
     ) => {
-      // 1. Ambil bell structure untuk hari ini
-      const bellList = await db
+      // 1. Ambil bell structure untuk hari ini (diurutkan kronologis pagi ke siang)
+      const rawBellList = await db
         .select()
         .from(bellSchedules)
-        .where(eq(bellSchedules.day, day))
-        .orderBy(asc(bellSchedules.jp));
+        .where(eq(bellSchedules.day, day));
+      const bellList = sortByStartTime(rawBellList);
 
       // 2. Ambil query slot
       let queryCondition = eq(timetableSlots.day, day);

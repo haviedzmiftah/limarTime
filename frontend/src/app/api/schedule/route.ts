@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/db";
 import { timetableSlots, classrooms, teachers, subjects, bellSchedules } from "@/db/schema";
 import { eq, and, asc, sql } from "drizzle-orm";
+import { sortByStartTime } from "@/lib/utils";
 import { ConflictValidator } from "@/lib/solver/validator";
 import { DayStructure, PlacedSlot, TeacherConstraint } from "@/lib/solver/types";
 
@@ -20,12 +21,13 @@ export async function GET(request: Request) {
     const day = searchParams.get("day") || "Senin";
     const versionId = searchParams.get("versionId") || "draft-v1";
 
-    // Struktur jam bel hari ini
-    const bellList = await db
+    // Struktur jam bel hari ini (diurutkan kronologis pagi ke siang)
+    const rawBellList = await db
       .select()
       .from(bellSchedules)
-      .where(eq(bellSchedules.day, day))
-      .orderBy(asc(bellSchedules.jp));
+      .where(eq(bellSchedules.day, day));
+
+    const bellList = sortByStartTime(rawBellList);
 
     if (viewMode === "teacher") {
       // Tampilan Grid per Guru
